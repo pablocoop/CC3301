@@ -1,0 +1,137 @@
+Sistema operativo utilizado
+Linux debian12 6.1.0-18-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -DSANITIZE -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-desbalancear.c desbalancear.c test-util.c -lm -o desbalancear.bin-san
+./desbalancear.bin-san
+Tests unitarios
+Primero se verifica desbalanceado porque es mas facil
+-----------------------------------------------------
+
+Verificando el arbol vacio
+Verificando arbol de un solo nodo
+Verificando arbol con un nodo raiz y un nodo derecho
+Verificando arbol con un nodo raiz y un nodo izquierdo
+Verificando ejemplo del enunciado
+
+Ahora se verifica desbalancear
+------------------------------
+
+Verificando el arbol vacio
+Verificando arbol de un solo nodo
+Verificando arbol con un nodo raiz y un nodo derecho
+Verificando arbol con un nodo raiz y u nodo izquierdo
+Verificando ejemplo del enunciado
+
+Tests aprobados
+
+Verificando un arbol de 100 mil nodos
+-------------------------------------
+
+Aprobado
+Aprobado
+Tests masivos
+
+=========================
+Benchmark de desbalancear
+=========================
+Tiempo de cpu usado por su version: 10 milisegundos
+
+==========================
+Benchmark de desbalanceado
+==========================
+Tiempo de cpu usado por su version: 410 milisegundos
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
+==== run-g ====
+gcc -g -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-desbalancear.c desbalancear.c test-util.c -lm -o desbalancear.bin-g
+./desbalancear.bin-g
+Tests unitarios
+Primero se verifica desbalanceado porque es mas facil
+-----------------------------------------------------
+
+Verificando el arbol vacio
+Verificando arbol de un solo nodo
+Verificando arbol con un nodo raiz y un nodo derecho
+Verificando arbol con un nodo raiz y un nodo izquierdo
+Verificando ejemplo del enunciado
+
+Ahora se verifica desbalancear
+------------------------------
+
+Verificando el arbol vacio
+Verificando arbol de un solo nodo
+Verificando arbol con un nodo raiz y un nodo derecho
+Verificando arbol con un nodo raiz y u nodo izquierdo
+Verificando ejemplo del enunciado
+
+Tests aprobados
+
+Verificando un arbol de 100 mil nodos
+-------------------------------------
+
+Aprobado
+Aprobado
+Tests masivos
+
+=========================
+Benchmark de desbalancear
+=========================
+Tiempo de cpu usado por su version: 6 milisegundos
+
+==========================
+Benchmark de desbalanceado
+==========================
+Tiempo de cpu usado por su version: 15 milisegundos
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -pedantic -std=c18 -Wno-unused-function  test-desbalancear.c desbalancear.c test-util.c -lm -o desbalancear.bin
+Midiendo cuanto demora la solucion del profesor
+rm -f tiempo-ref.txt
+chmod +x prof.ref-x86_64
+./prof.ref-x86_64 ref > /dev/null
+Tiempos de referencia =  238 396
+Verificando y comparando con su solucion
+./desbalancear.bin 238 396
+Tests unitarios
+Primero se verifica desbalanceado porque es mas facil
+-----------------------------------------------------
+
+Verificando el arbol vacio
+Verificando arbol de un solo nodo
+Verificando arbol con un nodo raiz y un nodo derecho
+Verificando arbol con un nodo raiz y un nodo izquierdo
+Verificando ejemplo del enunciado
+
+Ahora se verifica desbalancear
+------------------------------
+
+Verificando el arbol vacio
+Verificando arbol de un solo nodo
+Verificando arbol con un nodo raiz y un nodo derecho
+Verificando arbol con un nodo raiz y u nodo izquierdo
+Verificando ejemplo del enunciado
+
+Tests aprobados
+
+Verificando un arbol de 100 mil nodos
+-------------------------------------
+
+Aprobado
+Aprobado
+
+=========================
+Benchmark de desbalancear
+=========================
+Tiempo de cpu usado por su version: 104 milisegundos
+Tiempo de la version del profesor : 238 milisegundos
+Porcentaje de sobrecosto: -56 %
+
+==========================
+Benchmark de desbalanceado
+==========================
+Tiempo de cpu usado por su version: 706 milisegundos
+Tiempo de la version del profesor : 396 milisegundos
+Porcentaje de sobrecosto: 78 %
+Aprobado
+Felicitaciones: aprobo los tests de este modo de ejecucion
